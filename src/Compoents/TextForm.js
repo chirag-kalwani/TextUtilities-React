@@ -14,16 +14,19 @@ function TextForm(props) {
         setText(text.toLowerCase());
     }
     const handleClearClick = () => {
-        var s = '';
-        setText(s);
+        setText('');
     }
     const handleOnchange = (event) => {
-
         setText(event.target.value);
     }
     let countWord = () => {
         return text.endsWith(" ") === true ? text.split(" ").length - 1 : text.split(" ").length
     };
+    const handleCopyText = () => {
+        let text1 = document.getElementById('myBox');
+        text1.select();
+        navigator.clipboard.writeText(text1.value).then(r => "");
+    }
     const [text, setText] = useState('');
     return (
         <>
@@ -39,6 +42,8 @@ function TextForm(props) {
                     LowerCase
                 </button>
                 <button type="button" className="btn btn-danger my-3 mx-1" onClick={handleClearClick}>Clear Text
+                </button>
+                <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleCopyText}>Copy Text
                 </button>
             </div>
             <div className="container my-2">

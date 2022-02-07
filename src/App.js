@@ -10,8 +10,8 @@ function App() {
             {/*NavBar*/}
             <NavBar title="React App" aboutText="About Us"/>
             <div className="container my-3">
-                <About/>
-                {/*<TextForm heading={"Enter The Text To analyze"}/>*/}
+                {/*<About/>*/}
+                <TextForm heading={"Enter The Text To analyze"}/>
             </div>
         </>
     );
