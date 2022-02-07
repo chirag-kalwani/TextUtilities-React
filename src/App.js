@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from "./Compoents/NavBar";
 import TextForm from "./Compoents/TextForm";
+import About from "./Compoents/About";
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
             {/*NavBar*/}
             <NavBar title="React App" aboutText="About Us"/>
             <div className="container my-3">
-                <TextForm heading={"Enter The Text To analyze"}/>
+                <About/>
+                {/*<TextForm heading={"Enter The Text To analyze"}/>*/}
             </div>
         </>
     );
