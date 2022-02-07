@@ -27,13 +27,13 @@ function TextForm(props) {
     const [text, setText] = useState('');
     return (
         <>
-            <div className={"container"}>
+            <div className="container">
                 <h1>{props.heading}</h1>
                 <div className="form-group">
                     <textarea className="form-control" value={text} placeholder={'Enter Text Here'}
-                              onChange={handleOnchange} id="myBox" rows="8"/>
-                </div>
-                <button type="button" className="btn btn-success my-3 mx-1" onClick={handleUpclick}>Convert to UpperCase
+                              onChange={handleOnchange} id="myBox" rows="8"/></div>
+                <button type="button" className="btn btn-success my-3 mx-1" onClick={handleUpclick}>Convert to
+                    UpperCase
                 </button>
                 <button type="button" className="btn btn-success my-3 mx-1" onClick={handlelowerClick}>Convert to
                     LowerCase
