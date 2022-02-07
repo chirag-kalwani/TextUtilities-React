@@ -28,12 +28,18 @@ function TextForm(props) {
         navigator.clipboard.writeText(text1.value).then(r => "");
     }
     const [text, setText] = useState('');
+    const changeTextColor = () => {
+        if (props.mode === 'dark')
+            return 'light'
+        return 'dark'
+    }
     return (
         <>
             <div className="container">
-                <h1>{props.heading}</h1>
+                <h1 className={`text-${changeTextColor()}`}>{props.heading}</h1>
                 <div className="form-group">
-                    <textarea className="form-control" value={text} placeholder={'Enter Text Here'}
+                    <textarea className={`form-control bg-${props.mode} text-${changeTextColor()}`} value={text}
+                              placeholder={'Enter Text Here'}
                               onChange={handleOnchange} id="myBox" rows="8"/></div>
                 <button type="button" className="btn btn-success my-3 mx-1" onClick={handleUpclick}>Convert to
                     UpperCase
@@ -47,11 +53,12 @@ function TextForm(props) {
                 </button>
             </div>
             <div className="container my-2">
-                <h2> Your Text summary:</h2>
-                <p>{countWord()} words. {text.length} characters</p>
-                <p>Average time required to read: {Math.round((text.split(" ").length * 0.008) * 100) / 100} minutes</p>
-                <h2>Preview: </h2>
-                <p>{text}</p>
+                <h2 className={`text-${changeTextColor()}`}> Your Text summary:</h2>
+                <p className={`text-${changeTextColor()}`}>{countWord()} words. {text.length} characters</p>
+                <p className={`text-${changeTextColor()}`}>Average time required to
+                    read: {Math.round((text.split(" ").length * 0.008) * 100) / 100} minutes</p>
+                <h2 className={`text-${changeTextColor()}`}>Preview: </h2>
+                <p className={`text-${changeTextColor()}`}>{text.length > 0 ? text : 'Enter the text to preview.'}</p>
             </div>
         </>
     );

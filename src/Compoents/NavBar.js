@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function NavBar(props) {
+    const changeTextColor = () => {
+        if(props.mode === 'dark')
+            return 'light'
+        return 'dark'
+    }
     return (
-        <div className='container'>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div>
+            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">{props.title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -22,9 +27,13 @@ function NavBar(props) {
                             </li>
                         </ul>
                         <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Search"
-                                   aria-label="Search"/>
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+                            <div className="form-check form-switch">
+                                <input className="form-check-input" onClick={props.toggleMode} type="checkbox"
+                                       role="switch"
+                                       id="flexSwitchCheckDefault"/>
+                                <label className={`form-check-label text-${changeTextColor()}`}
+                                       htmlFor="flexSwitchCheckDefault">Change Theme</label>
+                            </div>
                         </form>
                     </div>
                 </div>

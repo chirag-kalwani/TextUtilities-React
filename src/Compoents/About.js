@@ -1,8 +1,4 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-
-About.propTypes = {};
-
 
 function About(props) {
     const [myStyle, setStyle] = useState({
