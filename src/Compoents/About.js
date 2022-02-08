@@ -10,7 +10,7 @@ function About(props) {
         color: 'white',
         backgroundColor: 'Black'
     })
-    const enableDarkMode = (e) => {
+    const enableDarkMode = () => {
         if (myStyle.color === 'black') {
             setStyle({
                 color: 'white',
@@ -33,13 +33,19 @@ function About(props) {
             });
         }
     }
+    const changeTextColor = () => {
+        if (props.mode === 'dark')
+            return 'light'
+        return 'dark'
+    }
     return (
-        <div style={myStyle}>
+        <div className={`text-${changeTextColor()} bg-${props.mode}`}>
             <h1 className='my-3'>About Us:</h1>
-            <div className="accordion accordion-flush" id="accordionFlushExample">
-                <div className="accordion-item">
+            <div className={`bg-${props.mode} accordion accordion-flush`} id="accordionFlushExample">
+                <div className={`accordion-item`}>
                     <h2 className="accordion-header" id="flush-headingOne">
-                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button className={`text-${changeTextColor()} bg-${props.mode} accordion-button collapsed"`} type="button"
+                                data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseOne" aria-expanded="false"
                                 aria-controls="flush-collapseOne" style={myStyle}>
                             Accordion Item #1
@@ -55,7 +61,8 @@ function About(props) {
                 </div>
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="flush-headingTwo">
-                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button className={`text-${changeTextColor()} bg-${props.mode} accordion-button collapsed"`} type="button"
+                                data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                 aria-controls="flush-collapseTwo" style={myStyle}>
                             Accordion Item #2
@@ -72,7 +79,8 @@ function About(props) {
                 </div>
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="flush-headingThree">
-                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button className={`text-${changeTextColor()} bg-${props.mode} accordion-button collapsed"`} type="button"
+                                data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseThree" aria-expanded="false"
                                 aria-controls="flush-collapseThree" style={myStyle}>
                             Accordion Item #3
@@ -90,9 +98,9 @@ function About(props) {
                     </div>
                 </div>
             </div>
-            <div className='container'>
-                <button type="button" className="btn btn-dark" style={oldBG} onClick={enableDarkMode}>{btnName}</button>
-            </div>
+            {/*<div className='container'>*/}
+            {/*    <button type="button" className="btn btn-dark" style={oldBG} onClick={enableDarkMode}>{btnName}</button>*/}
+            {/*</div>*/}
         </div>
     );
 }
