@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+// import {
+//     BrowserRouter as Router,
+//     Switch,
+//     Route,
+//     Link
+// } from "react-router-dom";
 import './App.css';
 import NavBar from "./Compoents/NavBar";
 import TextForm from "./Compoents/TextForm";
 import Alert from "./Compoents/Alert";
-import About from "./Compoents/About";
 
 function App() {
     const [Mode, setMode] = useState('dark'); // state variable enable or not
@@ -39,20 +38,21 @@ function App() {
     }
     return (
         <>
-            <Router>
-                <NavBar title="Text-Utilities" aboutText="About Us" mode={Mode} toggleMode={toggleMode}/>
-                <Alert alert={alert}/>
-                <div className="container my-3">
-                    <Switch>
-                        <Route exact path="/about">
-                            <About mode={Mode}/>
-                        </Route>
-                        <Route exact path="/">
-                            <TextForm heading={"Enter The Text To analyze"} showAlert={showAlert} mode={Mode}/>
-                        </Route>
-                    </Switch>
-                </div>
-            </Router>
+            {/*<Router>*/}
+            <NavBar title="Text-Utilities" aboutText="About Us" mode={Mode} toggleMode={toggleMode}/>
+            <Alert alert={alert}/>
+            <div className="container my-3">
+                <TextForm heading={"Enter The Text To analyze"} showAlert={showAlert} mode={Mode}/>
+                {/*<Switch>*/}
+                {/*    <Route exact path="/about">*/}
+                {/*        <About mode={Mode}/>*/}
+                {/*    </Route>*/}
+                {/*    <Route exact path="/">*/}
+                {/*        <TextForm heading={"Enter The Text To analyze"} showAlert={showAlert} mode={Mode}/>*/}
+                {/*    </Route>*/}
+                {/*</Switch>*/}
+            </div>
+            {/*</Router>*/}
         </>
     );
 }

@@ -48,7 +48,7 @@ function TextForm(props) {
     return (
         <>
             <div className="container">
-                <h1 className={`text-${changeTextColor()}`}>{props.heading}</h1>
+                    <h1 className={`text-${changeTextColor()}`}>{props.heading}</h1>
                 <div className="form-group">
                     <textarea className={`form-control bg-${props.mode} text-${changeTextColor()}`} value={text}
                               placeholder={'Enter Text Here'}
